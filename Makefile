@@ -2,12 +2,15 @@
 #
 # Simplified version from: https://github.com/hexagon5un/AVR-Programming
 
+MCU = atmega328p
+
 MAIN = libtft.c
 SRC = font.c hack.c unifont.c
 
 CC = avr-gcc
 AR = avr-ar
 
+CFLAGS = -mmcu=$(MCU)
 CFLAGS += -O2 -I.
 CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums 
 CFLAGS += -Wall -Wstrict-prototypes

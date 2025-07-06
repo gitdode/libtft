@@ -36,9 +36,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/5ac08bf9/libtft.o \
-	${OBJECTDIR}/bitmaps.o \
 	${OBJECTDIR}/font.o \
-	${OBJECTDIR}/hack.o
+	${OBJECTDIR}/hack.o \
+	${OBJECTDIR}/unifont.o
 
 
 # C Compiler Flags
@@ -69,10 +69,6 @@ ${OBJECTDIR}/_ext/5ac08bf9/libtft.o: /home/dode/dev/libtft/libtft.c
 	${MKDIR} -p ${OBJECTDIR}/_ext/5ac08bf9
 	$(COMPILE.c) -g -D__flash=volatile -o ${OBJECTDIR}/_ext/5ac08bf9/libtft.o /home/dode/dev/libtft/libtft.c
 
-${OBJECTDIR}/bitmaps.o: bitmaps.c
-	${MKDIR} -p ${OBJECTDIR}
-	$(COMPILE.c) -g -D__flash=volatile -o ${OBJECTDIR}/bitmaps.o bitmaps.c
-
 ${OBJECTDIR}/font.o: font.c
 	${MKDIR} -p ${OBJECTDIR}
 	$(COMPILE.c) -g -D__flash=volatile -o ${OBJECTDIR}/font.o font.c
@@ -80,6 +76,10 @@ ${OBJECTDIR}/font.o: font.c
 ${OBJECTDIR}/hack.o: hack.c
 	${MKDIR} -p ${OBJECTDIR}
 	$(COMPILE.c) -g -D__flash=volatile -o ${OBJECTDIR}/hack.o hack.c
+
+${OBJECTDIR}/unifont.o: unifont.c
+	${MKDIR} -p ${OBJECTDIR}
+	$(COMPILE.c) -g -D__flash=volatile -o ${OBJECTDIR}/unifont.o unifont.c
 
 # Subprojects
 .build-subprojects:
