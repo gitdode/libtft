@@ -276,9 +276,10 @@ void tftSetFrame(uint16_t color) {
     tftFillArea(0, 0, _displayWidth, _displayHeight, color);
 }
 
-void tftWriteSpace(const __flash uint8_t *bitmap,
-                   width_t width, height_t height,
-                   space_t space, uint16_t bg, uint16_t fg) {
+void tftWriteData(const __flash uint8_t *bitmap,
+                  width_t width, height_t height,
+                  space_t space, uint16_t bg, uint16_t fg) {
+    tftWriteStart();
     switch (space) {
         case SPACE_MONO1: {
             bytes_t bytes = width * height / 8;
@@ -308,13 +309,6 @@ void tftWriteSpace(const __flash uint8_t *bitmap,
             }
         }
     }
-}
-
-void tftWriteData(const __flash uint8_t *bitmap,
-                  width_t width, height_t height,
-                  space_t space, uint16_t bg, uint16_t fg) {
-    tftWriteStart();
-    tftWriteSpace(bitmap, width, height, space, bg, fg);
     tftWriteEnd();
 }
 
