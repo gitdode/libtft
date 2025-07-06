@@ -10,10 +10,8 @@ Static avr-libc library providing basic support for TFT LCDs such as:
 
 Currently implemented features:
 
-* Mostly complete UTF-8 set (code points U+0000 to U+00FF) of Unifont font
-  with antialiasing (1-Bit monochrome)
-* Mostly complete UTF-8 set (code points U+0000 to U+00FF) of Hack font
-  with antialiasing (4-Bit greyscale)
+* Mostly complete UTF-8 set (code points U+0000 to U+00FF) of Unifont font (1-Bit monochrome)
+* Mostly complete UTF-8 set (code points U+0000 to U+00FF) of Hack font with antialiasing (4-Bit greyscale)
 * Write text, draw bitmaps
 
 ![IMG_20250706_234615](https://github.com/user-attachments/assets/3351dfc5-97c9-4046-8b45-288919511e08)
