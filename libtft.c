@@ -221,8 +221,8 @@ void tftWriteEnd(void) {
 }
 
 void tftFillArea(x_t x, x_t y,
-              width_t width, height_t height,
-              uint16_t color) {
+                 width_t width, height_t height,
+                 uint16_t color) {
 
     madctl(false, false);
 
@@ -248,8 +248,8 @@ void tftFillArea(x_t x, x_t y,
 }
 
 void tftSetArea(x_t x, y_t y,
-             width_t width, height_t height,
-             bool hflip, bool vflip) {
+                width_t width, height_t height,
+                bool hflip, bool vflip) {
 
     madctl(hflip, vflip);
 
@@ -319,7 +319,7 @@ void tftWriteData(const __flash uint8_t *bitmap,
 }
 
 width_t tftWriteBitmap(x_t x, y_t y, uint16_t index,
-                    uint16_t bg, uint16_t fg) {
+                       uint16_t bg, uint16_t fg) {
     const __flash Bitmap *bitmap = &bitmaps[index];
     tftSetArea(x, y, bitmap->width, bitmap->height, false, false);
     tftWriteData(bitmap->bitmap, bitmap->width, bitmap->height,
@@ -329,7 +329,7 @@ width_t tftWriteBitmap(x_t x, y_t y, uint16_t index,
 }
 
 width_t tftWriteGlyph(x_t x, y_t y, const __flash Font *font, code_t code,
-                   uint16_t bg, uint16_t fg) {
+                      uint16_t bg, uint16_t fg) {
     const __flash Glyph *glyph = getGlyphAddress(font, code);
     tftSetArea(x, y, glyph->width, font->height, false, false);
     tftWriteData(glyph->bitmap, glyph->width, font->height,
@@ -339,7 +339,7 @@ width_t tftWriteGlyph(x_t x, y_t y, const __flash Font *font, code_t code,
 }
 
 width_t tftWriteString(x_t x, y_t y, const __flash Font *font, const char *string,
-                    uint16_t bg, uint16_t fg) {
+                       uint16_t bg, uint16_t fg) {
     width_t xorig = x;
     uint8_t offset = 0;
     for (; *string != '\0'; string++) {
