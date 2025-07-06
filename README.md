@@ -16,17 +16,20 @@ Currently implemented features:
   with antialiasing (4-Bit greyscale)
 * Write text, draw bitmaps
 
+![IMG_20250706_234615](https://github.com/user-attachments/assets/3351dfc5-97c9-4046-8b45-288919511e08)
+
 ## Usage
 
 1. Include `libtft.h`, `font.h` and `libtft.a` in the project
 2. Include `hack.h` and/or `unifont.h`, depending on what font to use.
 2. Implement the `_tft*` functions in `libtft.h` in the application
-(this is to make the library device and CPU frequency independent)
+(this is to make the library CPU frequency independent)
 
 ## Fonts
 
 To include a font, add i.e. `dejavu.c`:
 
+```C
     #include "dejavu.h"
     #include "utils.h"
 
@@ -52,9 +55,11 @@ To include a font, add i.e. `dejavu.c`:
     }
 
     const __flash Font dejaVuFont = {glyphs, array_length(glyphs), HEIGHT, SPACE_MONO1};
+```
 
 and the matching header `dejavu.h`:
 
+```C
     #ifndef DEJAVU_H
     #define DEJAVU_H
 
@@ -66,16 +71,20 @@ and the matching header `dejavu.h`:
     extern const __flash Font dejaVuFont;
 
     #endif /* DEJAVU_H */
+```
 
 and write some text in DejaVu to the display:
 
+```C
     const __flash Font *dejaVu = &dejaVuFont;
     tftWriteString(xl, yl, dejaVu, "123", WHITE, crc ? BLACK : RED);
+```
 
 ## Bitmaps
 
 To display bitmaps, add i.e. `bitmaps.c`:
 
+```C
     #include "font.h"
 
     const __flash uint8_t TUX_DATA[] = {
@@ -93,7 +102,10 @@ To display bitmaps, add i.e. `bitmaps.c`:
     const __flash Bitmap bitmaps[] = {
         {56, 64, SPACE_MONO1, TUX_DATA}
     };
+```
 
 and write Tux to the display:
 
+```C
     tftWriteBitmap(0, 176, 0, 0xffff, 0x0000);
+```
