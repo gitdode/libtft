@@ -5,8 +5,8 @@
  * Created on 17. September 2023, 20:33
  */
 
-#ifndef TYPES_H
-#define TYPES_H
+#ifndef TFTTYPES_H
+#define TFTTYPES_H
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -29,5 +29,5 @@ typedef uint8_t     code_t;
 /* Number of glyphs of a font */
 typedef uint8_t     length_t;
 
-#endif /* TYPES_H */
+#endif /* TFTTYPES_H */
 

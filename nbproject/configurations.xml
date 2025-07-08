@@ -38,21 +38,21 @@
           </preprocessorList>
         </cTool>
       </compileType>
+      <item path="/home/dode/dev/libtft/font.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="/home/dode/dev/libtft/font.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/dode/dev/libtft/hack.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="/home/dode/dev/libtft/hack.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="/home/dode/dev/libtft/libtft.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="font.c" ex="false" tool="0" flavor2="0">
+      <item path="/home/dode/dev/libtft/libtft.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="font.h" ex="false" tool="3" flavor2="0">
+      <item path="/home/dode/dev/libtft/types.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="hack.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="hack.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="libtft.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="types.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="unifont.c" ex="false" tool="0" flavor2="0">
+      <item path="/home/dode/dev/libtft/unifont.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>

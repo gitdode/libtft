@@ -13,6 +13,7 @@ SRC = font.c hack.c unifont.c
 
 CC = avr-gcc
 AR = avr-ar
+OBJDUMP = avr-objdump
 
 CFLAGS = -mmcu=$(MCU)
 CFLAGS += -O2 -I.
@@ -38,12 +39,17 @@ OBJ = $(SRC:.S=.o)
 $(TARGET).o: libtft.h font.h hack.h unifont.h types.h utils.h Makefile
 
 all: $(TARGET).a
-	
+
 %.a: %.o
 	$(AR) $(ARFLAGS) $(TARGET).a $(TARGET).o font.o hack.o unifont.o
 
 %.o: $(SRC)
 	$(CC) $(CFLAGS) $(SRC)
+
+disasm: $(TARGET).lst
+
+%.lst: %.o
+	$(OBJDUMP) -S $< > $@
 
 clean:
 	rm -f $(TARGET).a $(TARGET).hex $(TARGET).obj \
