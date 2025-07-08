@@ -56,7 +56,7 @@ static void madctl(bool hflip, bool vflip) {
     }
 
     _tftSel();
-    displayCmd(MADCTL);
+    displayCmd(TFT_MADCTL);
     displayData(madctl);
     _tftDes();
 }
@@ -69,7 +69,7 @@ static void madctl(bool hflip, bool vflip) {
  */
 static void caset(x_t xs, x_t xe) {
     _tftSel();
-    displayCmd(CASET);
+    displayCmd(TFT_CASET);
     displayData(xs >> 8);
     displayData(xs);
     displayData(xe >> 8);
@@ -85,7 +85,7 @@ static void caset(x_t xs, x_t xe) {
  */
 static void raset(y_t ys, y_t ye) {
     _tftSel();
-    displayCmd(RASET);
+    displayCmd(TFT_RASET);
     displayData(ys >> 8);
     displayData(ys);
     displayData(ye >> 8);
@@ -159,7 +159,7 @@ void tftInit(width_t width, height_t height,
 
     // Software reset
     _tftSel();
-    displayCmd(SWRESET);
+    displayCmd(TFT_SWRESET);
     _tftDes();
 
     // TODO necessary?
@@ -167,28 +167,28 @@ void tftInit(width_t width, height_t height,
 
     // Sleep out & booster on
     _tftSel();
-    displayCmd(SLPOUT);
+    displayCmd(TFT_SLPOUT);
     _tftDes();
 
     // Partial off (Normal)
     _tftSel();
-    displayCmd(NORON);
+    displayCmd(TFT_NORON);
     _tftDes();
 
     // Display Inversion on/off
     _tftSel();
-    displayCmd(invert ? INVON : INVOFF);
+    displayCmd(invert ? TFT_INVON : TFT_INVOFF);
     _tftDes();
 
     // Interface pixel format
     _tftSel();
-    displayCmd(COLMOD);
+    displayCmd(TFT_COLMOD);
     displayData(0b00111101);
     _tftDes();
 
     // Display on
     _tftSel();
-    displayCmd(DISPON);
+    displayCmd(TFT_DISPON);
     _tftDes();
 
     // Sleep in & booster off
@@ -202,7 +202,7 @@ void tftInit(width_t width, height_t height,
 void tftWriteStart(void) {
     // Memory write
     _tftSel();
-    displayCmd(RAMWR);
+    displayCmd(TFT_RAMWR);
     _tftSetData();
 }
 

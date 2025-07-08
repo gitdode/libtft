@@ -14,18 +14,18 @@
 #include <string.h>
 #include "font.h"
 
-#define SWRESET 0x01
-#define SLPIN   0x10
-#define SLPOUT  0x11
-#define NORON   0x13
-#define INVOFF  0x20
-#define INVON   0x21
-#define DISPON  0x29
-#define CASET   0x2a
-#define RASET   0x2b
-#define RAMWR   0x2c
-#define MADCTL  0x36
-#define COLMOD  0x3a
+#define TFT_SWRESET 0x01
+#define TFT_SLPIN   0x10
+#define TFT_SLPOUT  0x11
+#define TFT_NORON   0x13
+#define TFT_INVOFF  0x20
+#define TFT_INVON   0x21
+#define TFT_DISPON  0x29
+#define TFT_CASET   0x2a
+#define TFT_RASET   0x2b
+#define TFT_RAMWR   0x2c
+#define TFT_MADCTL  0x36
+#define TFT_COLMOD  0x3a
 
 /**
  * F_CPU dependent delay of 100 milliseconds.
