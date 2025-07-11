@@ -14,7 +14,7 @@ Currently implemented features:
 * Mostly complete UTF-8 set (code points U+0000 to U+00FF) of Hack font with antialiasing (4-Bit greyscale)
 * Write text, draw bitmaps
 
-![IMG_20250706_234615](https://github.com/user-attachments/assets/3351dfc5-97c9-4046-8b45-288919511e08)
+![IMG_20250711_234547](https://github.com/user-attachments/assets/8837384c-b532-4fae-8a88-431e301c79c6)
 
 ## Usage
 
