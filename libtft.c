@@ -140,6 +140,26 @@ static void grey4ToRGB16(uint8_t grey, uint8_t *rgb) {
     rgb[3] |= (grey0 << 6) | (grey0 << 5) | (grey0 << 0);
 }
 
+/*
+ * Converts the given pixel in 8-Bit RGB (3/3/2) to 16-Bit RGB (5/6/5) color
+ * stored in the given array of two bytes.
+ *
+ * @param rgb8 one pixel in 8-Bit RGB (3/3/2) color
+ * @param rgb one pixel in 16-Bit RGB (5/6/5) color
+ */
+static void rgb8ToRGB16(uint8_t rgb8, uint8_t *rgb) {
+    rgb[0] =  (rgb8 & 0xe0);
+    rgb[0] |= (rgb8 & 0x20) >> 1;
+    rgb[0] |= (rgb8 & 0x3c) >> 2;
+
+    rgb[1] =  (rgb8 & 0x04) << 5;
+    rgb[1] |= (rgb8 & 0x04) << 4;
+    rgb[1] |= (rgb8 & 0x07) << 3;
+    rgb[1] |= (rgb8 & 0x01) << 2;
+    rgb[1] |= (rgb8 & 0x01) << 1;
+    rgb[1] |= (rgb8 & 0x01);
+}
+
 void tftInit(width_t width, height_t height,
              bool hflip, bool vflip,
              bool bgr, bool invert) {
@@ -297,6 +317,16 @@ void tftWriteData(const __flash uint8_t *bitmap,
                 uint8_t rgb[4];
                 grey4ToRGB16(bitmap[i], rgb);
                 for (uint8_t j = 0; j < 4; j++) {
+                    _tftTx(rgb[j]);
+                }
+            }
+        }; break;
+        case SPACE_RGB8: {
+            bytes_t bytes = width * height;
+            for (uint16_t i = 0; i < bytes; i++) {
+                uint8_t rgb[2];
+                rgb8ToRGB16(bitmap[i], rgb);
+                for (uint8_t j = 0; j < 2; j++) {
                     _tftTx(rgb[j]);
                 }
             }
