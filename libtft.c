@@ -169,26 +169,27 @@ void tftInit(width_t width, height_t height,
     _vflip = vflip;
     _bgr = bgr;
 
-    _tftDelay100();
+    _tftDelay60();
 
     // Hardware reset
     _tftReset();
 
-    // TODO necessary?
-    // _delay_ms(10);
+    _tftDelay60();
+    _tftDelay60();
 
     // Software reset
     _tftSel();
     displayCmd(TFT_SWRESET);
     _tftDes();
 
-    // TODO necessary?
-    // _delay_ms(10);
+    _tftDelay60();
 
     // Sleep out & booster on
     _tftSel();
     displayCmd(TFT_SLPOUT);
     _tftDes();
+
+    _tftDelay60();
 
     // Partial off (Normal)
     _tftSel();

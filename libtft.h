@@ -28,10 +28,10 @@
 #define TFT_COLMOD  0x3a
 
 /**
- * F_CPU dependent delay of 100 milliseconds.
- * _delay_ms(100);
+ * F_CPU dependent delay of 60 milliseconds.
+ * _delay_ms(60);
  */
-void _tftDelay100(void);
+void _tftDelay60(void);
 
 /**
  * Selects the display to talk to via SPI.
